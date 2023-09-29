@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&family=Open+Sans&family=Roboto:ital@0;1&display=swap');
+
+/* 
+font-family: 'Mooli', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(250, 250, 250);
+    overflow: hidden;
+}
+
+/* Début partie navigation */
+.legals {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#navbar {
+    position: absolute;
+    background-color: #343434;
+    height: 100vh;
+    z-index: 1;
+    user-select: none;
+    left: 0;
+}
+
+#navul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin: 2rem 1rem;
+}
+
+.navli {
+    list-style: none;
+}
+
+.navlink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Mooli', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    color: rgb(255, 119, 70);
+}
+
+.navlink i {
+    font-size: 2rem;
+}
+
+#logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+
+#header {
+    position: absolute;
+    width: 100vw;
+    height: 3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    margin-top: 0.5rem;
+    padding-left: 10rem;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    user-select: none;
+}
+
+#logout-btn {
+    margin-right: 2rem;
+    border: none;
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    color: orangered;
+}
+
+/* Fin partie navigation */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie index */
+
+.main-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Mooli', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.menu-card {
+    padding: 2rem 3rem;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+}
+
+.menu-card:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.first-part {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.menu-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.second-part {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.todo-card-part {
+    width: 40rem;
+    height: 25rem;
+}
+
+.fa-cloud-arrow-up {
+    font-size: 4rem;
+}
+
+.add-file-card {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 5rem;
+    gap: 0.5rem;
+}
+
+.add-file-card:hover {
+    background-color: #343434;
+    box-shadow: 10px 10px 30px 0px rgba(255, 72, 0, 0.30);
+    color: white;
+    cursor: pointer;
+}
+
+.calendar-card {
+    height: 15rem;
+}
+
+
+/* Todo */
+.todo-all-cards {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.todo-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.todo-card:hover {
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.todo-card:active {
+    scale: 0.98;
+}
+
+.todo-date {
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.todo-right-side {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.todo-mod-btn,
+.todo-del-btn {
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Note */
+.notes-cards {
+    width: 40rem;
+    height: 10rem;
+}
+
+.note-card {
+    margin-top: 1rem;
+    width: 20rem;
+    border-radius: 3px;
+    height: 9rem;
+    display: flex;
+    border: 1px solid white;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.note-card:hover {
+    border: 1px solid #343434;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card-displayer {
+    display: flex;
+    gap: 1rem;
+}
+
+.note-header {
+    margin: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.note-left-side {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.note-right-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 0.5rem;
+    padding-right: 1rem;
+}
+
+.note-date {
+    font-weight: 400;
+    font-size: 0.7rem;
+    text-align: start;
+}
+
+.note-del-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.fa-pen:hover {
+    color: darkblue;
+}
+
+.fa-pen:active {
+    color: blue;
+    scale: 0.95;
+}
+
+.fa-delete-left:hover {
+    color: darkred;
+}
+
+.fa-delete-left:active {
+    color: red;
+    scale: 0.95;
+}
+
+.note-text {
+    padding: 1rem;
+    text-align: start;
+    font-size: 0.9rem;
+}
+
+/* Pomodoro */
+.pomodoro-card {
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-mod-pomodoro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.time-mod-timer {
+    font-size: 2.5rem;
+}
+
+.time-mod-btn {
+    border: none;
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+}
+
+.time-mod-btn:hover {
+    background-color: #343434;
+    color: white;
+}
+
+.time-mod-btn:active {
+    scale: 0.95;
+}
+
+.time-mod-start-btn {
+    margin-top: 1.5rem;
+    border: none;
+    padding: 0.7rem 3rem;
+    border-radius: 30px;
+    background-color: orangered;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.time-mod-start-btn:hover {
+    background-color: #343434;
+}
+
+.time-mod-start-btn:active {
+    scale: 0.95;
+    transform: translateY(2px);
+}
+
+/* Fin partie index */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie Todo */
+
+
+
+/* Fin partie Todo */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie Notes */
+
+
+
+/* Fin partie Notes */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie Calendar */
+
+
+
+/* Fin partie Calendar */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie files */
+
+
+
+/* Fin partie files */
+
+
+
+/* ---------------------------------------------------- */
+
+
+
+/* Début partie settings */
+
+
+
+/* Fin partie settings */
