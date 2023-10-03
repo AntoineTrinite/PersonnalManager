@@ -12,10 +12,14 @@
 ?>
     <div id="header">
             <h1><?php echo (isset($h1)) ? $h1 : "Accueil"; ?></h1>
-            <button id="logout-btn">Déconnexion</button>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <button id="logout-btn"><a class="logout-btn-href" href="./components/logout.php">Déconnexion</a></button>
+            <?php } ?>   
     </div>
     
-    <div class="main-container">
+
+    <?php if (isset($_SESSION['user_id'])) { ?>
+        <div class="main-container">
         <div class="first-part">
             <div class="menu-card todo-card-part">
                 <span class="card-title">Todo</span>
@@ -76,8 +80,14 @@
 
             <div class="menu-divider">
                 <div class="menu-card add-file-card"><i class="fa-solid fa-cloud-arrow-up"></i>Ajouter un fichier</div>
-                <div class="menu-card calendar-card">
-                    <span class="card-title">Calendrier</span>
+                <div class="menu-card hello-card">
+                <div class="user-div">
+                    <?php if (isset($_SESSION['user_id'])) { ?>
+                        <span class="user-presentation">Bonjour,</span>
+                        <span class="user-presentation"><?php echo $_SESSION['user_nom'] . ' ' . $_SESSION['user_prenom']; ?></span>
+                    <?php } ?> 
+                </div>    
+                
                 
                 
                 </div>
@@ -132,7 +142,17 @@
                 </div>
             </div>
         </div>
+    </div>              
+    <?php } else { ?>
+        <div class="main-container">
+        <div class="first-part">
+            <div class="menu-card">
+                <h2>Merci de vous connecter</h2>
+            </div>
+        </div>
     </div>
+    <?php } ?>
+    
 
 <?php 
     require_once (__DIR__ . './components/footer.php');

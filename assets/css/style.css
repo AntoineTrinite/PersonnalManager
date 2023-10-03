@@ -109,6 +109,15 @@ h1 {
     color: orangered;
 }
 
+.logout-btn-href {
+    text-decoration: none;
+    color: #343434;
+}
+
+.logout-btn-href:hover {
+    color: orangered;
+}
+
 /* Fin partie navigation */
 
 
@@ -189,8 +198,34 @@ h1 {
     cursor: pointer;
 }
 
-.calendar-card {
+
+.hello-card {
     height: 15rem;
+    padding: 2rem 3rem;
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    border-radius: 0px;
+    position: relative;
+}
+
+.hello-card:hover {
+    background-color: transparent;
+}
+
+.user-div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+}
+
+.user-presentation {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Mooli', sans-serif;
+
 }
 
 

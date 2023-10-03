@@ -1,4 +1,5 @@
 <?php
+    require_once (__DIR__ . './config/database.php');
     require_once (__DIR__ . './components/const.php');
 
     $title = "Todo | Personnal Manager";
@@ -11,8 +12,10 @@
 ?>
 
     <div id="header">
-            <h1><?php echo (isset($h1)) ? $h1 : "Accueil"; ?></h1>
-            <button id="logout-btn">Déconnexion</button>
+            <h1><?php echo (isset($h1)) ? $h1 : "Todo list"; ?></h1>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <button id="logout-btn"><a class="logout-btn-href" href="./components/logout.php">Déconnexion</a></button>
+            <?php } ?>
     </div>
     <section>
         <article>
