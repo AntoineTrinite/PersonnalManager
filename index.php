@@ -84,7 +84,9 @@
                 <div class="user-div">
                     <?php if (isset($_SESSION['user_id'])) { ?>
                         <span class="user-presentation">Bonjour,</span>
-                        <span class="user-presentation"><?php echo $_SESSION['user_nom'] . ' ' . $_SESSION['user_prenom']; ?></span>
+                        <span class="user-presentation"><?php echo $_SESSION['user_prenom'] . ' ' . $_SESSION['user_nom']; ?></span>
+                        <span class="user-presentation">Comment est votre journée ?</span>
+                        
                     <?php } ?> 
                 </div>    
                 

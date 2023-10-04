@@ -13,7 +13,7 @@
                 echo "Erreur";
             }}
     } elseif (isset($_POST['submit_connexion'])) {
-        $stm = $pdo->query("SELECT id, password FROM user WHERE mail='" . $_POST['mail'] . "'");
+        $stm = $pdo->query("SELECT id, nom, prenom, password FROM user WHERE mail='" . $_POST['mail'] . "'");
         $user = $stm->fetch(PDO::FETCH_ASSOC);
 
         if(password_verify($_POST['password'], $user['password'])){

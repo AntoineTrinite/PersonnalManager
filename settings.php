@@ -17,16 +17,35 @@
             <?php } ?>
     </div>
     
-    <section>
-        <div>
-            <h2>Modifier :</h2>
-            <!-- Faire des inputs nom prenom ... -->
+    <div class="main-container">
+        <div class="menu-card">
+                <span class="setting-card-title">Modifier ses paramètres :</span>
+                <div class="account-settings">
+                    <form action="">
+                        <div class="input-div">
+                            <label for="">Nom</label>
+                            <input class="setting-input" type="text" placeholder="">
+                            <label for="">Prénom</label>
+                            <input class="setting-input" type="text" placeholder="">
+                        </div>
+                        <div class="input-div">
+                            <label for="">Mail</label>
+                            <input class="setting-input-mail" type="mail" placeholder="">
+                        </div>
+                        
+                        <div class="input-div">
+                            <label for="">Mot de passe</label>
+                            <input class="setting-input" type="text" placeholder="">
+                            <label for="">Confirmer le mot de passe</label>
+                            <input class="setting-input" type="text" placeholder="">
+                        </div>
+                        <div class="setting-form-btn-part">
+                            <button class="setting-form-btn">Valider</button>
+                        </div>
+                    </form>
+                </div>
         </div>
-        <div>
-            <h2>Style :</h2>
-            <!-- Faire des inputs ? Pour modifier les couleurs du site ... -->
-        </div>
-    </section>
+    </div>
 
 
 
