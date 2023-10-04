@@ -155,6 +155,7 @@
     </div>
     <?php } ?>
     
+    <audio id="notificationSound" src="./public/pomotimerendsound.mp3" preload="auto"></audio>
 
 <?php 
     require_once (__DIR__ . './components/footer.php');

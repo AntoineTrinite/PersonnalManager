@@ -381,6 +381,7 @@ h1 {
 }
 
 .time-mod-btn {
+    user-select: none;
     border: none;
     border-radius: 30px;
     width: 30px;
