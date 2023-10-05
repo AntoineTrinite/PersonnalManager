@@ -17,62 +17,59 @@
                 <button id="logout-btn"><a class="logout-btn-href" href="./components/logout.php">Déconnexion</a></button>
             <?php } ?>
     </div>
+
+
+    <?php 
+        $todos = $pdo->query("SELECT * FROM todos ORDER BY id DESC");
+    
+    ?>
+
+
     <div class="main-container">
-        <div class="menu-card todo-card-part">
+        <div class="menu-card todo-card-part todo-page-part">
                 <div class="todo-all-cards">
-                    <div class="input-card">
-                            <input type="text" id="todo-input" placeholder="Ajouter une tâche...">
+
+                    <!-- todo input -->
+                    <form class="input-card" action="./components/todoadd.php" method="POST" autocomplete="off">
+                        <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
+                            <input type="text" name="title" id="todo-input" class="error-message" placeholder="Ajoutez une tâche avant de valider">
+                            <button type="submit" id="todo-input-btn" class="error-message">Ajouter</button>
+                        <?php } else { ?>
+                            <input type="text" name="title" id="todo-input" placeholder="Ajouter une tâche...">
+                            <button type="submit" id="todo-input-btn">Ajouter</button>
+                        <?php } ?>
+                    </form>
                         
-                        <button id="todo-input-btn">Ajouter</button>
-                    </div>
-                    <div class="todo-card">
-                        <div class="todo-title-part">
-                            <input type="checkbox" name="" id="">
-                            <span class="todo-name">Manger la vaisselle</span>
+
+
+                    <!-- todo list -->
+                    <?php if($todos->rowCount() < 0){ ?>
+                        <div class="empty-todo-card">
+                            <span>Ajoutez ici une tâche</span>
                         </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                    <?php } ?>
+
+
+                    <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
+                        <div class="todo-card">
+                            <div class="todo-title-part">
+
+                                <?php if($todo['checked'] != '0') { ?>
+                                    <input type="checkbox" class="check-box" checked>
+                                    <span class="todo-name checked"><?php echo $todo['title'] ?></span>
+                                <?php } else { ?>
+                                    <input type="checkbox" class="check-box">
+                                    <span class="todo-name"><?php echo $todo['title'] ?></span>
+                                <?php } ?>
+                            </div>
+                            
+                            <div class="todo-right-side">
+                                <button id="<?php echo $todo['id'] ?>" class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
+                                <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">séparer le chat</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">Arroser le lit</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">Courrir sous la douche</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
+
+                    <?php }?>
                 </div>
         </div>
     </div>

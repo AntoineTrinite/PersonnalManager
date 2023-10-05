@@ -16,7 +16,10 @@
                 <button id="logout-btn"><a class="logout-btn-href" href="./components/logout.php">Déconnexion</a></button>
             <?php } ?>   
     </div>
+    <?php 
+        $todos = $pdo->query("SELECT * FROM todos ORDER BY id DESC");
     
+    ?>
 
     <?php if (isset($_SESSION['user_id'])) { ?>
         <div class="main-container">
@@ -24,54 +27,33 @@
             <div class="menu-card todo-card-part">
                 <span class="card-title">Todo</span>
                 <div class="todo-all-cards">
-                    <div class="todo-card">
-                        <div class="todo-title-part">
-                            <input type="checkbox" name="" id="">
-                            <span class="todo-name">Manger la vaisselle</span>
+                <?php if($todos->rowCount() < 0){ ?>
+                        <div class="empty-todo-card">
+                            <span>Ajoutez ici une tâche</span>
                         </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                    <?php } ?>
+
+
+                    <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
+                        <div class="todo-card">
+                            <div class="todo-title-part">
+
+                                <?php if($todo['checked'] != '0') { ?>
+                                    <input type="checkbox" class="check-box" checked>
+                                    <span class="todo-name checked"><?php echo $todo['title'] ?></span>
+                                <?php } else { ?>
+                                    <input type="checkbox" class="check-box">
+                                    <span class="todo-name"><?php echo $todo['title'] ?></span>
+                                <?php } ?>
+                            </div>
+                            
+                            <div class="todo-right-side">
+                                <button id="<?php echo $todo['id'] ?>" class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
+                                <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">séparer le chat</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">Arroser le lit</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <div class="todo-card">
-                    <div class="todo-title-part">
-                        <input type="checkbox" name="" id="">
-                        <span class="todo-name">Courrir sous la douche</span>
-                    </div>
-                        
-                        <span class="todo-date">Créé le : 28/09/2023</span>
-                        <div class="todo-right-side">
-                            <button class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
-                            <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
+
+                    <?php }?>
                 </div>
             </div>
 
@@ -95,37 +77,29 @@
                 </div>
             </div>
         </div>
+
+
+        <?php 
+        $notes = $pdo->query("SELECT * FROM notes ORDER BY id DESC LIMIT 2");
+        ?>
         <div class="second-part">
             <div class="menu-card notes-cards">
                 <span class="card-title">Dernières notes</span>
-
-                <div class="card-displayer">
-                    <div class="note-card">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-
-
-                <div class="note-card">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Penser aux chiens</span>
-                            <span class="note-date">Le 21/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing Lorem ipsum, dolor sit amet consectetur adipisicingelit. Voluptatem, cum.</p>
-                </div>
+                <div class="notes-divider">
+                    <?php while($note = $notes->fetch(PDO::FETCH_ASSOC)) {?>
+                            <div class="note-card-page note-card-overflow">
+                                <div class="note-header">
+                                    <div class="note-left-side">
+                                        <span class="note-title"><?php echo $note['title'] ?></span>
+                                        <span class="note-date">Le 23/09/2023</span>
+                                    </div>
+                                    <div class="note-right-side">
+                                        <button id="<?php echo $todo['id'] ?>" class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                    </div>
+                                </div>
+                                <p class="note-text"><?php echo $note['text'] ?></p>
+                            </div>
+                    <?php }?>
                 </div>
                 
             </div>

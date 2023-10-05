@@ -177,6 +177,17 @@ h1 {
 .todo-card-part {
     width: 40rem;
     height: 25rem;
+    overflow-y: scroll;
+}
+
+.todo-card-part::-webkit-scrollbar {
+    opacity: 0.5;
+}
+
+.todo-page-part {
+    width: 40rem;
+    height: 40rem;
+    overflow-y: auto;
 }
 
 .fa-cloud-arrow-up {
@@ -245,10 +256,11 @@ h1 {
     padding: 1rem 1rem;
     cursor: pointer;
     border-radius: 3px;
+    border: 1px solid transparent;
 }
 
 .todo-card:hover {
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+    border: 1px solid #343434;
 }
 
 .todo-card:active {
@@ -274,10 +286,31 @@ h1 {
     cursor: pointer;
 }
 
+.checked {
+    color: #999 !important;
+    text-decoration: line-through;
+}
+
+.error-message {
+    border: 2px solid orangered;
+}
+
+
 /* Note */
 .notes-cards {
     width: 40rem;
     height: 10rem;
+    overflow: scroll;
+}
+
+.notes-cards::-webkit-scrollbar {
+    opacity: 0;
+}
+
+.notes-divider {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
 
 .note-card {
@@ -293,7 +326,6 @@ h1 {
 
 .note-card:hover {
     border: 1px solid #343434;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
 }
 
 .card-displayer {
@@ -571,6 +603,12 @@ label {
     background-color: orangered;
 
 }
+
+.empty-todo-card {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Fin partie Todo */
 

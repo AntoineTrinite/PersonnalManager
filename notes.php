@@ -18,6 +18,13 @@
             <?php } ?>
     </div>
 
+
+    <?php 
+        $notes = $pdo->query("SELECT * FROM notes ORDER BY id DESC");
+    
+    ?>
+
+
     <div class="main-container">
         <div class="menu-card notes-cards-page">
 
@@ -30,114 +37,21 @@
                 </div>
 
 
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
+                <?php while($note = $notes->fetch(PDO::FETCH_ASSOC)) {?>
+                        <div class="note-card-page">
+                            <div class="note-header">
+                                <div class="note-left-side">
+                                    <span class="note-title"><?php echo $note['title'] ?></span>
+                                    <span class="note-date">Le 23/09/2023</span>
+                                </div>
+                                <div class="note-right-side">
+                                    <button id="<?php echo $todo['id'] ?>" class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                </div>
+                            </div>
+                            <p class="note-text"><?php echo $note['text'] ?></p>
                         </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur apsum, dolor sit amet consectetur apsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
-                <div class="note-card-page">
-                    <div class="note-header">
-                        <div class="note-left-side">
-                            <span class="note-title">Faire une liste de course</span>
-                            <span class="note-date">Le 23/09/2023</span>
-                        </div>
-                        <div class="note-right-side">
-                            <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
-                        </div>
-                    </div>
-                    <p class="note-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, cum.</p>
-                </div>
+                <?php }?>
+                
 
                 
             </div>
