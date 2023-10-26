@@ -94,7 +94,9 @@
                                     </div>
                                     <div class="note-right-side">
                                         <span id="<?php echo $todo['id'] ?>"></span>
-                                        <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                        <button class="note-del-btn" data-note-id="<?php echo $note['id']; ?>">
+                                            <i class="fa-solid fa-delete-left"></i>
+                                        </button>
                                     </div>
                                 </div>
                                 <p class="note-text"><?php echo $note['text'] ?></p>

@@ -53,7 +53,6 @@
                     <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
                         <div class="todo-card">
                             <div class="todo-title-part">
-
                                 <?php if($todo['checked'] != '0') { ?>
                                     <input type="checkbox" data-todo-id="<?php echo $todo['id'] ?>" class="check-box" checked>
                                     <span class="todo-name checked"><?php echo $todo['title'] ?></span>
@@ -62,10 +61,9 @@
                                     <span class="todo-name"><?php echo $todo['title'] ?></span>
                                 <?php } ?>
                             </div>
-                            
                             <div class="todo-right-side">
                                 <span id="<?php echo $todo['id'] ?>"></span>
-                                <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                <button class="todo-del-btn" data-todo-id="<?php echo $todo['id'] ?>"><i class="fa-solid fa-delete-left"></i></button>
                             </div>
                         </div>
 
