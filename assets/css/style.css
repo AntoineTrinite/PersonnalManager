@@ -620,53 +620,64 @@ label {
 
 /* Début partie Notes */
 .notes-cards-page {
-    margin-top: 600px;
-    margin-bottom: 10rem;
-    max-width: 70vw;
+    max-width: 40vw;
+    margin-bottom: 10%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .card-displayer-page {
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
 .note-card-page-input {
-    margin-top: 1rem;
+    margin-top: 30%;
+    margin-bottom: 10%;
     width: 20rem;
     border-radius: 3px;
     display: flex;
-    background-color: #343434;
-    border: 1px solid rgb(0, 0, 0);
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
-.add-note-btn {
-    background-color: transparent;
+.notes-input-title {
+    width: 500px;
+    height: 1.5rem;
+}
+
+.note-input-title {
+    text-align: start;
+}
+
+#note-input {
+    max-width: 500px;
+    min-width: 500px;
+    min-height: 200px;
+    max-height: 250px;
+}
+
+#note-input-btn {
+    width: 100%;
+    height: 2rem;
+    background: rgb(43, 43, 43);
+    border: 1px solid black;
     color: white;
-    font-size: 10rem;
-    font-weight: bold;
-    border: none;
+    border-radius: 0 3px 3px 0;
     cursor: pointer;
-    height: 100%;
 }
 
-.add-note-btn:hover {
-    scale: 0.98;
-}
+#note-input-btn:hover {
+    background-color: orangered;
 
-.add-note-btn:active {
-    scale: 0.90;
-    background-color: white;
-    color: #343434;
 }
 
 .note-card-page {
+    margin: 0 auto;
     margin-top: 1rem;
     width: 20rem;
     border-radius: 3px;

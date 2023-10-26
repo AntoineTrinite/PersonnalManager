@@ -26,16 +26,16 @@
 
 
     <div class="main-container">
+
+        
+        <form  class="note-card-page-input" action="">
+            <input type="text" class="notes-input-title" placeholder="Ajoutez un titre" required>
+            <textarea id="note-input" name="texte"></textarea>
+            <input id="note-input-btn" type="submit" value="Ajouter">
+        </form>
+        
         <div class="menu-card notes-cards-page">
-
             <div class="card-displayer-page">
-
-                <div class="note-card-page-input">
-                
-                    <button class="add-note-btn">+</button>
-                   
-                </div>
-
 
                 <?php while($note = $notes->fetch(PDO::FETCH_ASSOC)) {?>
                         <div class="note-card-page">
@@ -45,7 +45,8 @@
                                     <span class="note-date">Le 23/09/2023</span>
                                 </div>
                                 <div class="note-right-side">
-                                    <button id="<?php echo $todo['id'] ?>" class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                    <span id="<?php echo $note['id'] ?>"></span>
+                                    <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
                                 </div>
                             </div>
                             <p class="note-text"><?php echo $note['text'] ?></p>

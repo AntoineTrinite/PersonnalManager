@@ -55,16 +55,16 @@
                             <div class="todo-title-part">
 
                                 <?php if($todo['checked'] != '0') { ?>
-                                    <input type="checkbox" class="check-box" checked>
+                                    <input type="checkbox" data-todo-id="<?php echo $todo['id'] ?>" class="check-box" checked>
                                     <span class="todo-name checked"><?php echo $todo['title'] ?></span>
                                 <?php } else { ?>
-                                    <input type="checkbox" class="check-box">
+                                    <input type="checkbox" data-todo-id="<?php echo $todo['id'] ?>" class="check-box">
                                     <span class="todo-name"><?php echo $todo['title'] ?></span>
                                 <?php } ?>
                             </div>
                             
                             <div class="todo-right-side">
-                                <button id="<?php echo $todo['id'] ?>" class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
+                                <span id="<?php echo $todo['id'] ?>"></span>
                                 <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
                             </div>
                         </div>

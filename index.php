@@ -37,7 +37,6 @@
                     <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
                         <div class="todo-card">
                             <div class="todo-title-part">
-
                                 <?php if($todo['checked'] != '0') { ?>
                                     <input type="checkbox" class="check-box" checked>
                                     <span class="todo-name checked"><?php echo $todo['title'] ?></span>
@@ -48,7 +47,7 @@
                             </div>
                             
                             <div class="todo-right-side">
-                                <button id="<?php echo $todo['id'] ?>" class="todo-mod-btn"><i class="fa-solid fa-pen"></i></button>
+                                <span id="<?php echo $todo['id'] ?>"></span>
                                 <button class="todo-del-btn"><i class="fa-solid fa-delete-left"></i></button>
                             </div>
                         </div>
@@ -94,7 +93,8 @@
                                         <span class="note-date">Le 23/09/2023</span>
                                     </div>
                                     <div class="note-right-side">
-                                        <button id="<?php echo $todo['id'] ?>" class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
+                                        <span id="<?php echo $todo['id'] ?>"></span>
+                                        <button class="note-del-btn"><i class="fa-solid fa-delete-left"></i></button>
                                     </div>
                                 </div>
                                 <p class="note-text"><?php echo $note['text'] ?></p>
